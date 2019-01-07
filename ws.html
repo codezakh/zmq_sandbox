@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+    <body>
+        <script>
+            let ws = new WebSocket("ws://10.20.0.160:5678/");
+
+            let frameCapture = new Image();
+            document.body.append(frameCapture)
+
+            ws.onmessage = function (event) {
+                frameCapture.src = "data:image/jpeg;base64, " + event.data;
+            };
+        </script>
+    </body>
+</html>
